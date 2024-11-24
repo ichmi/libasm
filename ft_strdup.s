@@ -10,6 +10,7 @@ ft_strdup:
     xor rcx, rcx
 
     call ft_strlen
+    inc rax
     push rdi
 
     mov rdi, rax

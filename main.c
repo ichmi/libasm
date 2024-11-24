@@ -16,33 +16,17 @@ void test_ft_strlen();
 void test_ft_strcpy();
 void test_ft_strcmp();
 void test_ft_write();
-// void test_ft_read();
+void test_ft_read();
+void test_ft_strdup();
 
 int main() {
 
-    // test_ft_strlen();
-    // test_ft_strcpy();
-    // test_ft_strcmp();
-    // test_ft_write();
-    // test_ft_read();
-
-    // char buffer[100];
-    // ssize_t n;
-
-    // n = ft_read(STDIN_FILENO, buffer, sizeof(buffer) - 1);
-    // if (n < 0)
-    //     printf("(%d) read call failed: %s\n\n", errno, strerror(errno));
-    // else {
-    //     buffer[n] = '\0';
-    //     printf("bytes read: %zd, buffer: %s\n", n, buffer);
-    // }
-
-    char *s1 = "Foo";
-    char *s2 = ft_strdup(s1);
-    printf("%s : %p\n", s1, s1);
-    printf("%s : %p\n", s2, s2);
-
-    // printf("%p\n", p);
+    test_ft_strlen();
+    test_ft_strcpy();
+    test_ft_strcmp();
+    test_ft_write();
+    test_ft_read();
+    test_ft_strdup();
 
     return 0;
 }
@@ -120,4 +104,25 @@ void test_ft_write() {
         printf("(%d) write call failed: %s\n\n", errno, strerror(errno));
     else
         printf("\n%zd\n\n", n);
+}
+
+void test_ft_read() {
+    char buffer[100];
+    ssize_t n;
+
+    n = ft_read(STDIN_FILENO, buffer, sizeof(buffer) - 1);
+    if (n < 0)
+        printf("(%d) read call failed: %s\n\n", errno, strerror(errno));
+    else {
+        buffer[n] = '\0';
+        printf("bytes read: %zd, buffer: %s\n", n, buffer);
+    }
+}
+
+void test_ft_strdup() {
+    char *s1 = "Foo";
+    char *s2 = ft_strdup(s1);
+    printf("%s : %p\n", s1, s1);
+    printf("%s : %p\n", s2, s2);
+    free(s2);
 }
