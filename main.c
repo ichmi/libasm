@@ -12,6 +12,17 @@ extern ssize_t  ft_write(int fd, const void *buf, size_t count);
 extern ssize_t  ft_read(int fd, void *buf, size_t count);
 extern char     *ft_strdup(const char *s);
 
+
+typedef struct s_list {
+    void *data;
+    struct s_list *next;
+} t_list;
+
+t_list	*ft_lstnew(void *content);
+
+void ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)());
+
+
 void test_ft_strlen();
 void test_ft_strcpy();
 void test_ft_strcmp();

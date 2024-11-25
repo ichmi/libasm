@@ -5,9 +5,11 @@ CC		= clang
 CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+B_SRCS	= ft_list_push_front.s
 
 OBJSDIR	= obj
-OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.s=%.o})
+# OBJS	= $(addprefix ${OBJSDIR}/, ${SRCS:%.s=%.o})
+OBJS	= $(addprefix ${OBJSDIR}/, ${B_SRCS:%.s=%.o})
 
 
 all: $(NAME)
@@ -34,6 +36,9 @@ re: fclean all
 # Extra receipts
 exe:
 	clang $(CFLAGS) main.c -L. -lasm
+
+bonus:
+	clang $(CFLAGS) main_bonus.c -L. -lasm
 
 diss:
 	gcc -S -O0 -masm=intel -o disassembledCode.s main.c
